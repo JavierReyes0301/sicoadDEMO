@@ -1,0 +1,1927 @@
+<html lang="en">
+  <!-- START: Head-->
+  <head>
+    <meta charset="utf-8" />
+    <title>SICOAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- START: Template CSS-->
+    <!-- <link rel="stylesheet" href="https://grave-gusty-grain.glitch.me/dist/vendors/bootstrap/css/bootstrap.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body id="main-container" class="layout-top-nav" style="height: auto">
+    <div id="header-fix" class="header fixed">
+      <div class="site-width">
+        <nav class="navbar expand" style="background-color: #d5d8dc">
+          <div class="navbar-brand align-text-center" href="#">
+            <strong>SISTEMA DE CONTROL DE ADQUISICIONES</strong>
+          </div>
+        </nav>
+      </div>
+      <div class="top-menu">
+        <nav class="navbar navbar-expand" style="background-color: #566573">
+          <strong class="navbar-nav">
+            <li id="home" class="nav-item active">
+              <a class="nav-link" href="https://sicoad-inicio.glitch.me/">
+                <i class="nav-icon"></i>Inicio
+              </a>
+            </li>
+
+            <li id="records">
+              <a class="nav-link" href="https://sicoad-registros.glitch.me/">
+                <i class="nav-icon"></i>Registros
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Año
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://sicoad-inicio.glitch.me/"
+                    >2025</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://sicoad-inicio-2024.glitch.me/"
+                    >2024</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- Nuevo elemento de cierre de sesión -->
+            <li id="logout">
+              <!-- El href ahora apunta a la ruta de tu archivo de inicio de sesión -->
+              <a class="nav-link" href="index.html">
+                <i class="nav-icon"></i>Cerrar sesión
+              </a>
+            </li>
+          </strong>
+        </nav>
+      </div>
+    </div>
+    <main id="app" class="app-front-end app-content-full-height">
+      <div class="container-fluid site-width">
+        <div class="container bg-light">
+          <section id="content" class="app-content">
+            <div class="amcharts-main-div" style="position: center">
+              <div class="card card-body border-0 mt-3 rounded-2">
+                <div class="row g-2">
+                  <div class="col-sm-3 py-4">
+                    <div class="col-sm-0 py-2">
+                      <div
+                        class="card text-white text-center"
+                        style="background-color: #566573"
+                      >
+                        <h1 class="display fw-bold mb-0" id="">34</h1>
+                        <small class="mb-0 small"
+                          >Total de Contratos Adjudicados</small
+                        >
+                      </div>
+                    </div>
+                    <div class="col-sm-0 py-2">
+                      <div
+                        class="card text-white text-center"
+                        style="background-color: #229954"
+                      >
+                        <h1 class="display fw-bold mb-0" id="">
+                          $42,147,394.3
+                        </h1>
+                        <small class="mb-0 small">Monto Adjudicado (MXN)</small>
+                      </div>
+                    </div>
+                    <div class="col-sm-0 py-2">
+                      <div
+                        class="card text-white text-center"
+                        style="background-color: #a04000"
+                      >
+                        <h1 class="display fw-bold mb-0" id="">
+                          $31,495,276.3
+                        </h1>
+                        <small class="mb-0 small"
+                          >Monto Total Pagado (MXN)</small
+                        >
+                      </div>
+                    </div>
+                    <div class="col-sm-0 py-2">
+                      <div
+                        class="card text-white text-center"
+                        style="background-color: #797d7f"
+                      >
+                        <h1 class="display fw-bold mb-0" id="">$25,494.92</h1>
+                        <small class="mb-0 small"
+                          >Monto Gastos Menores (MXN)</small
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <strong class="d-block mb-0 text-center"
+                      >Clasificación por Objeto del Gasto (Capítulo)
+                      2025</strong
+                    >
+                    <canvas
+                      id="myChart"
+                      style="width: 0%; max-height: 350px"
+                    ></canvas>
+                    <script>
+                      var xValues = [
+                        "Contratado Cap.2000",
+                        "Pagado Cap.2000",
+                        "Contratado Cap.3000",
+                        "Pagado Cap.3000",
+                        "Contratado Cap.5000",
+                        "Pagado Cap.5000",
+                      ];
+                      var yValues = [
+                        5838196, 5212608, 18080450, 14353920, 18254243,
+                        11954243,
+                      ];
+                      var barColors = [
+                        "#7dcea0",
+                        "#e74c3c",
+                        "#7dcea0",
+                        "#e74c3c",
+                        "#7dcea0",
+                        "#e74c3c",
+                      ];
+
+                      // Función para formatear el número a moneda (Millones de Pesos)
+                      function formatCurrency(value, currency = "MXN") {
+                        // Utilizamos el formateador internacional con la configuración para pesos mexicanos
+                        return new Intl.NumberFormat("es-MX", {
+                          style: "currency",
+                          currency: currency,
+                          minimumFractionDigits: 0,
+                        }).format(value);
+                      }
+
+                      new Chart("myChart", {
+                        type: "horizontalBar",
+                        data: {
+                          labels: xValues,
+                          datasets: [
+                            {
+                              backgroundColor: barColors,
+                              data: yValues,
+                            },
+                          ],
+                        },
+                        options: {
+                          legend: { display: false },
+                          title: {
+                            display: true,
+                            text: "Millones de Pesos (MXN)",
+                          },
+                          scales: {
+                            xAxes: [
+                              {
+                                ticks: {
+                                  // Formatea los valores del eje X
+                                  callback: function (value, index, values) {
+                                    return formatCurrency(value);
+                                  },
+                                },
+                              },
+                            ],
+                          },
+                          // *** Configuración para el Tooltip (cuando pasas el cursor) ***
+                          tooltips: {
+                            callbacks: {
+                              label: function (tooltipItem, data) {
+                                var label =
+                                  data.labels[tooltipItem.index] || "";
+                                if (label) {
+                                  label += ": ";
+                                }
+                                // Formatea el valor del tooltip usando la función de moneda
+                                label += formatCurrency(tooltipItem.xLabel);
+                                return label;
+                              },
+                            },
+                          },
+                          // *** Fin de la configuración del Tooltip ***
+                        },
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-body border-0 mt-3 rounded-2">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        <strong>Adjudicaciones por Capítulo</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseOne"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Capítulo</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 2000 Materiales y Suministros</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <a
+                                  class="nav-link"
+                                  href="https://registros-capitulo-2000.glitch.me/"
+                                >
+                                  <i class="nav-icon"></i>10
+                                </a>
+                              </td>
+                              <td class="text-center">
+                                <span class="contracted amount"
+                                  >$5,828,787.43</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$5,203,199.43</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 3000 Servicios Generales</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <a
+                                  class="nav-link"
+                                  href="https://registros-capitulo-3000.glitch.me/"
+                                >
+                                  <i class="nav-icon"></i>18
+                                </a>
+                              </td>
+                              <td class="text-center">
+                                <span class="contracted amount"
+                                  >$18,064,363.91</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$14,337,833.91</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 5000 Bienes Muebles</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <a
+                                  class="nav-link"
+                                  href="https://registros-capitulo-5000.glitch.me/"
+                                >
+                                  <i class="nav-icon"></i>6
+                                </a>
+                              </td>
+                              <td class="text-center">
+                                <span class="contracted amount"
+                                  >$18,254,243.03</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$11,954,243.03</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="grand total">Gran Total</span>
+                              </td>
+                              <td class="text-center">
+                                <span class="addition">34</span>
+                              </td>
+                              <td class="text-center">
+                                <span class="contracted amount"
+                                  >$42,147,394.37</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$31,495,276.37</span>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        <strong>Gastos Menores por Capítulo</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseTwo"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Capítulo</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 2000 Materiales y Suministros</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$9,408.92</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 3000 Servicios Generales</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$16,086.00</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="chapter"
+                                  >Cap. 5000 Bienes Muebles</span
+                                >
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$0.00</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="text-center">
+                                <span class="grand total">Gran Total</span>
+                              </td>
+                              <td class="text-center">
+                                <span class="amount paid">$25,494.92</span>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsethree"
+                        aria-expanded="false"
+                        aria-controls="collapsethree"
+                      >
+                        <strong>Por Fondo/Programa</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapsethree"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Fondo/Programa</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program"
+                                    >Fiscales y Propios</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-fiscales-y-propios.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>4
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$10,918,329.14</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$7,392,741.14</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program">Municipales</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-municipales.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>6
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$3,273,973.89</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$3,097,443.89</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program">Otros Recursos</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-otros-recursos.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>7
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$12,350,641.04</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$8,850,641.04</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program"
+                                    >Participaciones Federales</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-participaciones-federales.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>9
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$3,963,774.78</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$3,663,774.78</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program"
+                                    >Recursos Federales</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-recursos-federales.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>2
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,182,063.50</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$1,182,063.50</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="program">Recursos Propios</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-recursos-propios.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>6
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$10,458,612.02</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$7,308,612.02</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="grand total">Gran Total</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="addition">34</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$42,147,394.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$31,495,276.37</span
+                                  >
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsefour"
+                        aria-expanded="false"
+                        aria-controls="collapsefour"
+                      >
+                        <strong>Por Modalidad de Adjudicación</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapsefour"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Modalidad de Adjudicación</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="mode">Licitación Pública</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-licitacion-publica.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>9
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$25,534,287.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$17,458,699.37</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="mode"
+                                    >Licitación Simplificada</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">0</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">$0.00</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$0.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="mode"
+                                    >Invitación Restringida</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">0</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">$0.00</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$0.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="mode"
+                                    >Invitación a Cuando Menos Tres
+                                    Personas</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-invitacion-a-tres.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>16
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$7,568,117.35</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$6,991,587.35</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="mode">Adjudicación Directa</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-adjudicacion-directa.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>9
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$9,044,989.65</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$7,044,989.65</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="grand total">Gran Total</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="addition">34</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$42,147,394.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$31,495,276.37</span
+                                  >
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsefive"
+                        aria-expanded="false"
+                        aria-controls="collapsefive"
+                      >
+                        <strong>Por Proveedor</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapsefive"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Nombre o Razon Social</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >American Trust Register, S.C.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,250,000.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="monto pagado"
+                                    >$1,000,000.00</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >BTL Betterland, S. de R.L. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">
+                                    $210,000.00
+                                  </span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$210,000.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Comercializadora de Productos en Insumos
+                                    del Golfo, S.A.P.I. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">
+                                    $290,654.00
+                                  </span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$290,654.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Comercializadora YCY Plate, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">
+                                    $585,600.48
+                                  </span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$585,600.48</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Construquim, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$172,413.79</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$172,413.79</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Corporación Industrial y Comercial de
+                                    Puebla, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">2</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$377,356.00
+                                  </span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$377,356.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Corporativo de Negocios M&P, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">
+                                    $836,000.01
+                                  </span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$836,000.01</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >CSI Tactical And Balistic, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,308,998.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$983,410.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Efectivale, S. de R.L. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">2</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$6,710,773.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$4,310,773.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Etchegaray y Asociados, S.C.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">2</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$845,000.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$845,000.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Evaluare Expertos en Políticas Públicas,
+                                    S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$372,240.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$372,240.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >FCC Rugarcía, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,497,150.14</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$1,297,150.14</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Gráficos Globales de Puebla, S. de R.L. De
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$462,279.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$462,279.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Grupo Stella de Puebla, S.A.P.I. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$3,831,266.03</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$2,831,266.03</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Grupo Xoxtla Lunapar, S.C.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">2</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,863,033.33</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$1,663,033.33</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Infoestrategica Latina, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$196,122.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$196,122.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Krolens Consultores, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$844,999.99</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$644,999.99</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Maldonado Villaseñor Consultores,
+                                    S.C.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$600,000.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$600,000.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Mercadotecnia y Propaganda Luk, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$96,400.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$96,400.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Oficinas y Comercios, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,051,700.08</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$875,170.08</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"> nom</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount">$</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Proveedora Litho, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$800,578.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$800,578.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Qualitas Compañía de Seguros, S.A.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$321,892.82</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$321,892.82</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Remedios Producciones y Asociados, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$2,800,000.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$1,900,000.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Representaciones y Distribuciones Esquivel,
+                                    S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$301,774.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$301,774.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Seguridad y Protección Industrial y
+                                    Ejecutiva, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$99,319.20</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$99,319.20</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Sí Vale México, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$612,063.50</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$612,063.50</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Sistemas y Diseños Móviles, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$8,036,781.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$5,036,781.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Software Integral, S.A. de C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$75,400.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$75,400.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Software y Computadoras Warex, S.A. de
+                                    C.V.</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$5,387,400.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$3,387,400.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="supplier"
+                                    >Tecnología y Sistemas Computacionales
+                                    JIPO</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">1</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$310,200.00</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$310,200.00</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="grand total">Gran Total</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="addition">34</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$42,147,394.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$31,495,276.37</span
+                                  >
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsesix"
+                        aria-expanded="false"
+                        aria-controls="collapsesix"
+                      >
+                        <strong>Por Tipo de Contrato</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapsesix"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Tipo de Contrato</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="guy">Servicios</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-servicios.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>18
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$18,064,363.91</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$14,337,833.91</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="guy">Bienes muebles</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-bienes-muebles.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>6
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$18,254,243.03</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$11,954,243.03</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="guy">Bienes de consumo</span>
+                                </td>
+                                <td class="text-center">
+                                  <a
+                                    class="nav-link"
+                                    href="https://registros-bienes-de-consumo.glitch.me/"
+                                  >
+                                    <i class="nav-icon"></i>10
+                                  </a>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$5,828,787.43</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$5,203,199.43</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="grand total">Gran Total</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="addition">34</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$42,147,394.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$31,495,276.37</span
+                                  >
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseseven"
+                        aria-expanded="false"
+                        aria-controls="collapseseven"
+                      >
+                        <strong>Por Año</strong>
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseseven"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div class="accordion-body">
+                        <div>
+                          <table class="table table-striped small text-center">
+                            <thead>
+                              <tr>
+                                <th>Año</th>
+                                <th>Total de Contratos</th>
+                                <th>Monto Total Contratado</th>
+                                <th>Monto Total Pagado</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="year">2025</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">34</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$42,147,394.37</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid"
+                                    >$31,495,276.37</span
+                                  >
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">
+                                  <span class="year">2024</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="count">3</span>
+                                </td>
+                                <td class="text-center">
+                                  <span class="contracted amount"
+                                    >$1,600,000.0</span
+                                  >
+                                </td>
+                                <td class="text-center">
+                                  <span class="amount paid">$1,600,000.0</span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card card-body border-0 mt-3 rounded-2">
+                <nav class="navbar" style="background-color: #bdc3c7">
+                  <div class="container-fluid site-width">
+                    <span class="navbar-text"
+                      ><strong>Unidades Administrativas</strong></span
+                    >
+                  </div>
+                  <table class="table table-striped small text-center">
+                    <thead>
+                      <tr>
+                        <th>No.Cvo.</th>
+                        <th>Unidad Administrativa</th>
+                        <th>Capítulo 2000</th>
+                        <th>Capítulo 3000</th>
+                        <th>Capítulo 5000</th>
+                        <th>Total de Adjudicaciones</th>
+                        <th>Monto Contratado</th>
+                        <th>Monto Pagado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">1</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Presidencia Municipal</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="addition">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$0.00</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$0.00</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">2</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Secretaría del Ayuntamiento</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-del-ayuntamiento.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>1
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-del-ayuntamiento-3000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>4
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-del-ayuntamiento.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>5
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$2,302,062.56</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$2,125,532.56</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">3</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Contraloría Municipal</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="addition">0</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$0.00</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$0.00</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">4</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Tesorería Municipal</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://tesoreria-municipal-2000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>3
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://tesoreria-municipal-3000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>4
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://tesoreria-municipal-5000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>1
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://tesoreria-municipal.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>8
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$5,910,197.99</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$4,910,197.99</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">5</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Secretaría de Gobernación</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-gobernacion-2000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>2
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-gobernacion-3000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>1
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-gobernacion-5000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>2
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-gobernacion.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>5
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$12,394,703.14</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$8,619,115.14</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">6</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Coordinación General Jurídica</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://coordinacion-general-juridica-2000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>2
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">0</span>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://coordinacion-general-juridica.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>2
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$1,168,033.33</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$1,168,033.33</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">7</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="administrative unit"
+                            >Secretaría de Administración</span
+                          >
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-administracion-2000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>4
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-administracion-3000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>7
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-administracion-5000.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>3
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <a
+                            class="nav-link"
+                            href="https://secretaria-de-administracion.glitch.me/"
+                          >
+                            <i class="nav-icon"></i>14
+                          </a>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$20,372,397.35</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$14,672,397.35</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center">
+                          <span tabindex="0" class="sorting_1">8</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="grand total">Gran Total</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">10</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">18</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="count">6</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="addition">34</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="contracted amount">$42,147,394.37</span>
+                        </td>
+                        <td class="text-center">
+                          <span class="amount paid">$31,495,276.37</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </nav>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="navbar-expand text-center" style="background-color: #566573">
+      <strong> SISTEMA DE CONTROL DE ADQUISICIONES © </strong>
+    </footer>
+  </body>
+</html>
