@@ -1576,22 +1576,16 @@
                   </div>
                 </div>
               </div>
-              <!-- Añadimos w-100 para asegurar el ancho total y p-0 para evitar márgenes internos en móviles -->
-              <div class="card card-body border-0 mt-3 rounded-2 p-2 p-md-3">
-                <nav
-                  class="navbar w-100"
-                  style="background-color: #bdc3c7; border-radius: 4px"
-                >
+              <div class="card card-body border-0 mt-3 rounded-2">
+                <nav class="navbar w-100" style="background-color: #bdc3c7">
                   <div class="container-fluid site-width">
                     <span class="navbar-text"
                       ><strong>Unidades Administrativas</strong></span
                     >
                   </div>
-
-                  <!-- ENVOLVEMOS LA TABLA EN UN DIV 'table-responsive' -->
-                  <!-- Esto crea un scroll horizontal solo si la pantalla es muy pequeña -->
+                  <!-- Único ajuste: contenedor responsivo para la tabla -->
                   <div class="table-responsive w-100">
-                    <table class="table table-striped small text-center mb-0">
+                    <table class="table table-striped small text-center">
                       <thead>
                         <tr>
                           <th>No.Cvo.</th>
@@ -1633,15 +1627,218 @@
                             <span class="amount paid">$0.00</span>
                           </td>
                         </tr>
-                        <!-- ... El resto de tus filas se mantienen igual ... -->
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">2</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Secretaría del Ayuntamiento</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>1
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>4
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>5
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount">$2,302,062.56</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$2,125,532.56</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">3</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Contraloría Municipal</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="addition">0</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount">$0.00</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$0.00</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">4</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Tesorería Municipal</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>3
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>4
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>1
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>8
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount">$5,910,197.99</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$4,910,197.99</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">5</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Secretaría de Gobernación</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>2
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>1
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>2
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>5
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount"
+                              >$12,394,703.14</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$8,619,115.14</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">6</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Coordinación General Jurídica</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>2
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="count">0</span>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>2
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount">$1,168,033.33</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$1,168,033.33</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">
+                            <span tabindex="0" class="sorting_1">7</span>
+                          </td>
+                          <td class="text-center">
+                            <span class="administrative unit"
+                              >Secretaría de Administración</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>4
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>7
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>3
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <a class="nav-link" href="javascript:void(0);">
+                              <i class="nav-icon"></i>14
+                            </a>
+                          </td>
+                          <td class="text-center">
+                            <span class="contracted amount"
+                              >$20,372,397.35</span
+                            >
+                          </td>
+                          <td class="text-center">
+                            <span class="amount paid">$14,672,397.35</span>
+                          </td>
+                        </tr>
                         <tr>
                           <td class="text-center">
                             <span tabindex="0" class="sorting_1">8</span>
                           </td>
                           <td class="text-center">
-                            <span class="grand total"
-                              ><strong>Gran Total</strong></span
-                            >
+                            <span class="grand total">Gran Total</span>
                           </td>
                           <td class="text-center">
                             <span class="count">10</span>
@@ -1657,13 +1854,11 @@
                           </td>
                           <td class="text-center">
                             <span class="contracted amount"
-                              ><strong>$42,147,394.37</strong></span
+                              >$42,147,394.37</span
                             >
                           </td>
                           <td class="text-center">
-                            <span class="amount paid"
-                              ><strong>$31,495,276.37</strong></span
-                            >
+                            <span class="amount paid">$31,495,276.37</span>
                           </td>
                         </tr>
                       </tbody>
